@@ -5,20 +5,19 @@ extends TestCube
 # Barrel Length = 660 mm
 # Cartridge = .300 Winchester Magnum
 # Firing Range = 1100 m
-# 
-var speed = 910 * Vector3(0,0,-1) / 1000
-# m/s
-var mass = 180
-# g
+
+var mass = 11.66 / 1000
+# kg
 var drag = Vector3(0,0,0)
 # N
 var RGN = 0
 # Randomly Generated Number
 var wind_speed = RGN * Vector3(0,0,0)
 # m/s
-var gravity = Vector3(0,-9.81,0)
+var grav_acc = Vector3(0,-9.81,0)
 # m/(s^2)
-
+var k = 0.000015
+# kg/m
 
 func _ready():
 	
@@ -29,12 +28,22 @@ func _ready():
 
 
 func _process(delta):
+	
 	var bullet = get_translation()
 	var speed = 910 * get_translation().normalized()
-	speed += delta * gravity
+	var force_gravity = mass * grav_acc
+	var wind = Vector3()
+	wind.x = rand_range(-100,100)
+	wind.z = rand_range(-100,100)
+	var force_wind = Vector3()
+	force_wind.x = k * wind.x * wind.x
+	force_wind.y = k * wind.y * wind.y
+	var acceleration = (force_wind + force_gravity)/mass
+	speed += delta * acceleration
 	bullet = delta * speed + get_translation()
 	look_at(get_translation() + speed,Vector3(0,1,0))
 	set_translation(bullet)
-	print(get_translation())
+	#print(get_translation())
+	print(speed)
 	
 	pass

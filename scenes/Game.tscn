@@ -13,6 +13,7 @@ _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.0373 )
+visibility/visible = false
 layers = 1
 geometry/visible = true
 geometry/material_override = null
@@ -38,8 +39,6 @@ sensitivity = 1
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 1.05 )
 
 [node name="Sniper" parent="Player" instance=ExtResource( 4 )]
-
-visibility/visible = false
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 

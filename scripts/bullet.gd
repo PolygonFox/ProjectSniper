@@ -35,6 +35,6 @@ func _process(delta):
 	bullet = delta * speed + get_translation()
 	look_at(get_translation() + speed,Vector3(0,1,0))
 	set_translation(bullet)
-	#print(get_translation())
+	print(get_translation())
 	
 	pass

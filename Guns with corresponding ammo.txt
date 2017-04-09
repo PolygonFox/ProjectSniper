@@ -2,5 +2,5 @@ Accuracy International AWM	https://en.wikipedia.org/wiki/Accuracy_International_
 	ammo: .300 winchester magnum	https://en.wikipedia.org/wiki/.300_Winchester_Magnum
 		velocity: 910 m/s
 		energy: 4877 J
-		weight: 180 gr
+		weight: 11.66 g
 		

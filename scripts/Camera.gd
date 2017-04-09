@@ -16,7 +16,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
-	cameraFront = Vector3(0, 0, 1)
+	cameraFront = Vector3(0, 0, -1)
 
 	set_process_input(true)
 

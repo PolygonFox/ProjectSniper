@@ -8,20 +8,19 @@ extends TestCube
 
 var mass = 11.66 / 1000
 # kg
-var drag = Vector3(0,0,0)
-# N
-var RGN = 0
-# Randomly Generated Number
-var wind_speed = RGN * Vector3(0,0,0)
-# m/s
 var grav_acc = Vector3(0,-9.81,0)
 # m/(s^2)
 var k = 0.000015
 # kg/m
+var number_x = range(-100,100)[randi()%range(-100,100).size()]
+var number_y = range(-100,100)[randi()%range(-100,100).size()]
+
 
 func _ready():
-	
-	set_process(true)
+	randomize()
+	print(number_x)
+	print(number_y)
+	#set_process(true)
 	#set_translation(bullet)
 	
 	pass
@@ -33,9 +32,11 @@ func _process(delta):
 	var speed = 910 * get_translation().normalized()
 	var force_gravity = mass * grav_acc
 	var wind = Vector3()
-	wind.x = rand_range(-100,100)
-	wind.z = rand_range(-100,100)
-	var force_wind = Vector3()
+	wind.x = number_x
+	wind.z = number_y
+	
+	
+	var force_wind = Vector3() * wind.normalized()
 	force_wind.x = k * wind.x * wind.x
 	force_wind.y = k * wind.y * wind.y
 	var acceleration = (force_wind + force_gravity)/mass
@@ -45,5 +46,6 @@ func _process(delta):
 	set_translation(bullet)
 	#print(get_translation())
 	print(speed)
+	
 	
 	pass
